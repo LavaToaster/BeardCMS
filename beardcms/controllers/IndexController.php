@@ -3,7 +3,7 @@
 class IndexController extends BaseController {
 
     public function getIndex() {
-        return View::make('index');
+        $this->layout->content = View::make('index');
     }
 
 }
