@@ -3,9 +3,13 @@
 use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
-class User extends Eloquent implements UserInterface, RemindableInterface {
+class Users extends Eloquent implements UserInterface, RemindableInterface {
 
-	/**
+    public $email;
+
+    protected $password;
+
+    /**
 	 * The database table used by the model.
 	 *
 	 * @var string
@@ -17,7 +21,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 *
 	 * @var array
 	 */
-	protected $hidden = array('password');
+	protected $hidden = ['password'];
 
 	/**
 	 * Get the unique identifier for the user.
