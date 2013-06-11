@@ -11,4 +11,5 @@
 |
 */
 
+Route::any("{slug}", "PageController@showPage")->where('slug', '(.*)');
 Route::controller("/", "IndexController");
