@@ -11,8 +11,7 @@
 			"beardcms/controllers",
 			"beardcms/models",
 			"beardcms/database/migrations",
-			"beardcms/database/seeds",
-			"beardcms/tests/TestCase.php"
+			"beardcms/database/seeds"
 		]
 	},
 	"scripts": {
