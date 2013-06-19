@@ -7,8 +7,13 @@ class PageController extends BaseController {
      */
     protected $page;
 
-    public function showPage($slug) {
-        $this->page = Page::get(ltrim($slug, "/") ?: 'index.html');
+    /**
+     * Find and set the layout's content
+     *
+     * @param $slug string The slug to the page
+     * @return void
+     */
+    public function setPage($slug) {
         $this->page = Page::getPage(ltrim($slug, "/") ?: 'index.html');
         $this->layout->content = View::make('templates.pages.default')->with('page', $this->page->getAttributes());
     }

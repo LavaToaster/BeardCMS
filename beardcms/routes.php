@@ -11,4 +11,4 @@
 |
 */
 
-Route::any("{slug}", "PageController@showPage")->where('slug', '(.*)');
+Route::any("{slug}", "PageController@setPage")->where('slug', '(.*)');
