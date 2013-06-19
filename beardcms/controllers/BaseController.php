@@ -2,6 +2,9 @@
 
 class BaseController extends Controller {
 
+    /**
+     * @var Illuminate\View\View
+     */
     protected $layout = "layouts.master";
 
     /**
