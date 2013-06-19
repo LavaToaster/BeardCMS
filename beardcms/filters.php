@@ -22,6 +22,24 @@ App::after(function($request, $response)
 	//
 });
 
+
+App::missing(function($exception) {
+    return Response::view("errors.404", [], 404);
+});
+
+App::error(function($exception) {
+    /* If we're debugging the app, don't catch any errors! */
+    if(Config::get("app.debug")) {
+        return null;
+    }
+
+    if($exception instanceof \Illuminate\Database\Eloquent\ModelNotFoundException) {
+        return Response::view("errors.404", [], 404);
+    }
+
+    return Response::view("errors.500", [], 500);
+});
+
 /*
 |--------------------------------------------------------------------------
 | Authentication Filters
