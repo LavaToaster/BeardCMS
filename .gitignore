@@ -8,3 +8,5 @@ workspace.xml
 tasks.xml
 _ide_helper.php
 .idea/
+public/liveedits/dashboard.html
+atlassian-ide-plugin.xml
