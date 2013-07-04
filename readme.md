@@ -1,6 +1,31 @@
 BeardCMS
 ========
 
-BeardCMS will absolutely make your website...
+Laravel4 based CMS.
 
-![Smashing](http://static.tumblr.com/ab9b2b06f9c56811940ec35475bca78a/whnwjik/1rOmj5ql5/tumblr_static___sticker_375x360.png)
+Installation
+------------
+
+Install composer dependencies
+```
+composer install
+```
+
+Generate Application Key
+```
+php artisan key:generate
+```
+
+Edit the config files as you need them, the two initially required are:
+```
+beardcms/config/app.php
+beardcms/config/database.php
+```
+
+Migrate the database and packages (with some starting data!)
+```
+php artisan migrate --seed
+php artisan migrate --package=cartalyst/sentry
+```
+
+###Done!
