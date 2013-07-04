@@ -51,9 +51,12 @@ App::error(function($exception) {
 |
 */
 
-Route::filter('auth', function()
+Route::filter('auth', function($loginRoute, $redirectLocation)
 {
-	if (Auth::guest()) return Redirect::guest('login');
+    if (Sentry::check()) {
+        Session::flash('redirectTo', $redirectLocation);
+        return Redirect::guest($loginRoute);
+    }
 });
 
 
