@@ -11,4 +11,6 @@
 |
 */
 
+
+Route::controller("admin", "LoginController");
 Route::any("{slug}", "PageController@setPage")->where('slug', '(.*)');
