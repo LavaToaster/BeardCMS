@@ -2,12 +2,6 @@
 
 class Page extends Eloquent {
 
-    public $title;
-
-    public $content;
-
-    public $slug;
-
     protected $guarded = ['id'];
 
     /**
