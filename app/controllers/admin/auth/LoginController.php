@@ -14,7 +14,7 @@ class LoginController extends AdminController
      */
     public function getIndex()
     {
-        $this->layout->content = View::make('admin.global.login')->with('errors', $this->errors);
+        $this->layout->content = View::make('admin.auth.login')->with('errors', $this->errors);
     }
 
     /**
