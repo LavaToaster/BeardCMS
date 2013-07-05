@@ -6,6 +6,10 @@
         "laravel/framework": "4.0.*",
         "cartalyst/sentry": "2.0.*"
     },
+    "require-dev": {
+        "way/generators": "dev-master",
+        "barryvdh/laravel-ide-helper": "1.*"
+    },
     "autoload": {
         "classmap": [
             "beardcms/commands",
