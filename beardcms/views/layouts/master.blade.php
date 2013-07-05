@@ -24,8 +24,9 @@
                             <div class="container">
                                 <a class="brand" href="#">BeardCMS</a>
                                 <ul class="nav">
-                                    <li><a href="#" title="Home">Home</a></li>
-                                    <li><a href="#" title="Contact Us">Contact Us</a></li>
+                                    @foreach( $navitems as $item )
+                                    <li @if($item->isActive())class="active"@endif><a href="{{ $item->url }}" title="{{ $item->title }}">{{ $item->name }}</a></li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
