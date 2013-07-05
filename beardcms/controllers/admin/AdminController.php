@@ -8,4 +8,9 @@ class AdminController extends BaseController {
      */
     protected $layout = "layouts.master";
 
+    protected function setupNavigation()
+    {
+        $this->layout->with('navitems', Navigation::where('type', '=', 2)->get());
+    }
+
 }
