@@ -16,7 +16,7 @@ class CreateNavTable extends Migration {
             $table->string('name');
             $table->string('title');
             $table->string('url');
-            $table->smallInteger('type');
+            $table->smallInteger('type')->default('1');
 
             $table->timestamps();
             $table->softDeletes();
