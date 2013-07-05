@@ -14,6 +14,7 @@ class LoginController extends AdminController
      */
     public function getIndex()
     {
+        $this->layout->with('navitems', []);
         $this->layout->content = View::make('admin.auth.login')->with('errors', $this->errors);
     }
 
