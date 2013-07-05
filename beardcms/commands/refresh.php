@@ -50,14 +50,14 @@ class Refresh extends Command {
             $this->line('Migrating Sentry');
             $this->call('migrate', array('--package' => 'cartalyst/sentry'));
 
-            // Migrate our migration
+            // Migrate our migrations
             $this->line('Migrating BeardCMS');
             $this->call('migrate');
 
             // And seed it
-            echo PHP_EOL.'Seeding DB...'.PHP_EOL;
+            $this->line("Seeding DB");
             $this->call('db:seed');
-            echo 'Done.'.PHP_EOL.PHP_EOL;
+            $this->line('Done.');
         }
     }
 
