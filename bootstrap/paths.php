@@ -13,7 +13,7 @@ return array(
 	|
 	*/
 
-	'app' => __DIR__.'/../beardcms',
+	'app' => __DIR__.'/../app',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -52,6 +52,6 @@ return array(
 	|
 	*/
 
-	'storage' => __DIR__.'/../beardcms/storage',
+	'storage' => __DIR__.'/../app/storage',
 
 );

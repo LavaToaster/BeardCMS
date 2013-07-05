@@ -13,11 +13,11 @@
     },
     "autoload": {
         "classmap": [
-            "beardcms/commands",
-            "beardcms/controllers",
-            "beardcms/models",
-            "beardcms/database/migrations",
-            "beardcms/database/seeds"
+            "app/commands",
+            "app/controllers",
+            "app/models",
+            "app/database/migrations",
+            "app/database/seeds"
         ]
     },
     "scripts": {
