@@ -11,6 +11,9 @@ class DatabaseSeeder extends Seeder {
 
         $this->call('DefaultUserSeeder');
         $this->command->info('Seeded default user. admin@example.com:test');
+
+        $this->call('DefaultNavigationSeeder');
+        $this->command->info('Seeded default navigation items');
     }
 
 }
