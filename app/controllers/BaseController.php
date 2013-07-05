@@ -1,6 +1,6 @@
 <?php
 
-class BaseController extends Controller {
+abstract class BaseController extends Controller {
 
     /**
      * @var Illuminate\View\View

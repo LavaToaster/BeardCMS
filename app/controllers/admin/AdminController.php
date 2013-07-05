@@ -1,6 +1,6 @@
 <?php
 
-class AdminController extends BaseController {
+abstract class AdminController extends BaseController {
 
     /**
      * @note Temp until the admin template is ready
