@@ -13,7 +13,7 @@
 
 
 //Admin Routes
-Route::group(['before' => 'auth'], function() {
+Route::group(['before' => 'auth|csrf'], function() {
     Route::controller('admin/dashboard', 'AdminDashboardController');
     Route::controller('admin/pages', 'AdminPageController');
 });
@@ -21,7 +21,7 @@ Route::group(['before' => 'auth'], function() {
 /* Temp logout route */
 Route::get('admin/logout', function() {
     Sentry::logout();
-    return Redirect::to('admin');
+    return Redirect::to('admin/login');
 });
 
 Route::controller('admin', 'LoginController');

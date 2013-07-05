@@ -12,7 +12,7 @@ class LoginController extends AdminController
     /**
      * Shows the login form
      */
-    public function getIndex()
+    public function getLogin()
     {
         $this->layout->with('navitems', []);
         $this->layout->content = View::make('admin.auth.login')->with('errors', $this->errors);
@@ -21,7 +21,7 @@ class LoginController extends AdminController
     /**
      * Processes the login request
      */
-    public function postIndex()
+    public function postLogin()
     {
         try
         {
@@ -64,5 +64,10 @@ class LoginController extends AdminController
         }
 
         $this->getIndex();
+    }
+
+    public function getIndex()
+    {
+        return Redirect::action("LoginController@getLogin");
     }
 }

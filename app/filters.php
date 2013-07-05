@@ -54,7 +54,7 @@ App::error(function($exception) {
 Route::filter('auth', function()
 {
     if (!Sentry::check()) {
-        return Redirect::guest("admin");
+        return Redirect::guest("admin/login");
     }
 });
 
