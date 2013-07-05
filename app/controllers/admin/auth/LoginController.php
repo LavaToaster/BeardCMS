@@ -6,7 +6,7 @@ class LoginController extends AdminController
 
     public function __construct()
     {
-        //Override the auth check
+        $this->beforeFilter('csrf', array('on' => 'post'));
     }
 
     /**

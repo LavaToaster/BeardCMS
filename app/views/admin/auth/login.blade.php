@@ -5,6 +5,7 @@ Login | BeardCMS ACP
 @section("content")
 <div class="container">
     <form method="POST" action="">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <h2>Admin Panel</h2>
         <div id="loginMessages"></div>
         <div class="form-horizontal" id="loginArea">
