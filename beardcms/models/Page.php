@@ -17,7 +17,8 @@ class Page extends Eloquent {
      * @param string|int $identifier
      * @return bool
      */
-    public static function pageExists($identifier) {
+    public static function pageExists($identifier)
+    {
         try {
             static::get($identifier);
         } catch ( \Illuminate\Database\Eloquent\ModelNotFoundException $e ) {
@@ -35,7 +36,8 @@ class Page extends Eloquent {
      * @param string|int $identifier Page ID (int) or Page URI (string)
      * @return Page
      */
-    public static function getPage($identifier) {
+    public static function getPage($identifier)
+    {
         if(is_int($identifier)) {
             $page = static::find($identifier)->firstOrFail();
         } else {
