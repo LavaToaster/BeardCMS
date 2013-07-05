@@ -4,11 +4,6 @@ class LoginController extends AdminController
 {
     public $errors = [];
 
-    public function __construct()
-    {
-        $this->beforeFilter('csrf', array('on' => 'post'));
-    }
-
     /**
      * Shows the login form
      */

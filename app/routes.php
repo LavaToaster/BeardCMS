@@ -13,7 +13,7 @@
 
 
 //Admin Routes
-Route::group(['before' => 'auth|csrf'], function() {
+Route::group(['before' => 'auth'], function() {
     Route::controller('admin/dashboard', 'AdminDashboardController');
     Route::controller('admin/pages', 'AdminPageController');
 });
