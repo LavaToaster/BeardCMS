@@ -12,5 +12,17 @@
 */
 
 
-Route::controller("admin", "LoginController");
-Route::any("{slug}", "PageController@setPage")->where('slug', '(.*)');
+//Admin Routes
+Route::group(['before' => 'auth'], function() {
+    Route::controller('admin/dashboard', 'AdminDashboardController');
+    Route::controller('admin/pages', 'AdminPageController');
+});
+
+/* Temp logout route */
+Route::get('admin/logout', function() {
+    Sentry::logout();
+    return Redirect::to('admin');
+});
+
+Route::controller('admin', 'LoginController');
+Route::any('{slug}', 'PageController@setPage')->where('slug', '(.*)');
