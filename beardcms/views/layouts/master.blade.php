@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
     <head>
 
         <title>@yield('title')</title>
@@ -16,24 +16,22 @@
     </head>
     <body>
 
-        <header>
-            <div class="row">
-                <div class="span12">
-                    <div class="navbar navbar-inverse navbar-fixed-top">
-                        <div class="navbar-inner">
-                            <div class="container">
-                                <a class="brand" href="#">BeardCMS</a>
-                                <ul class="nav">
-                                    @foreach( $navitems as $item )
-                                        <li @if($item->isActive())class="active"@endif><a href="{{ $item->url }}" title="{{ $item->title }}">{{ $item->name }}</a></li>
-                                    @endforeach
-                                </ul>
-                            </div>
+        <div class="row">
+            <div class="span12">
+                <nav class="navbar navbar-inverse navbar-fixed-top">
+                    <div class="navbar-inner">
+                        <div class="container">
+                            <a class="brand" href="#">BeardCMS</a>
+                            <ul class="nav">
+                                @foreach( $navitems as $item )
+                                    <li @if($item->isActive())class="active"@endif><a href="{{ $item->url }}" title="{{ $item->title }}">{{ $item->name }}</a></li>
+                                @endforeach
+                            </ul>
                         </div>
                     </div>
                 </div>
-            </div>
-        </header>
+            </nav>
+        </div>
 
         <div class="content">
 
