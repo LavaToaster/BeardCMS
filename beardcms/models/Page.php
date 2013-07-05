@@ -6,7 +6,7 @@ class Page extends Eloquent {
 
     public $content;
 
-    public $uri;
+    public $slug;
 
     protected $guarded = ['id'];
 
@@ -39,7 +39,7 @@ class Page extends Eloquent {
         if(is_int($identifier)) {
             $page = static::find($identifier)->firstOrFail();
         } else {
-            $page = static::where('uri', '=', $identifier)->firstOrFail();
+            $page = static::where('slug', '=', $identifier)->firstOrFail();
         }
 
         return $page;

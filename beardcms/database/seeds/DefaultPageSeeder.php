@@ -4,7 +4,7 @@ class DefaultPageSeeder extends Seeder {
     public function run() {
         $data = [
             'title' => 'Home',
-            'uri'   => 'index.html',
+            'slug'   => 'index.html',
             'content' => '<div id="full-page">
     <div class="hero-unit">
         <h1>Hello World!</h1>
