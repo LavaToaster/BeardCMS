@@ -8,8 +8,4 @@ class AdminController extends BaseController {
      */
     protected $layout = "layouts.master";
 
-    public function __construct() {
-        //TODO Validate user's auth
-    }
-
 }
