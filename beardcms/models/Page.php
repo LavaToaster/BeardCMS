@@ -25,10 +25,11 @@ class Page extends Eloquent {
     /**
      * Attempts to find and return the page
      *
-     * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
-     *
      * @param string|int $identifier Page ID (int) or Page URI (string)
+
      * @return Page
+     *
+     * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
      */
     public static function getPage($identifier)
     {
