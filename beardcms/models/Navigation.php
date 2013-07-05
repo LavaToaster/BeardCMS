@@ -11,6 +11,6 @@ class Navigation extends Eloquent {
      */
     public function isActive()
     {
-        return $this->url == Url::current() ? true : false;
+        return $this->url == Url::current() || (Url::current() == Config::get('app.url')) ? true : false;
     }
 }
