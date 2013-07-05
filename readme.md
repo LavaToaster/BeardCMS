@@ -22,10 +22,10 @@ beardcms/config/app.php
 beardcms/config/database.php
 ```
 
-Migrate the database and packages (with some starting data!)
+Migrate the database and packages (Warning: Make sure you migrate sentry first or the database seeding will fail!)
 ```
-php artisan migrate --seed
 php artisan migrate --package=cartalyst/sentry
+php artisan migrate --seed
 ```
 
-###Done!
+You are done!
