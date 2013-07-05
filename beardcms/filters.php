@@ -51,18 +51,11 @@ App::error(function($exception) {
 |
 */
 
-Route::filter('auth', function($loginRoute, $redirectLocation)
+Route::filter('auth', function()
 {
-    if (Sentry::check()) {
-        Session::flash('redirectTo', $redirectLocation);
-        return Redirect::guest($loginRoute);
+    if (!Sentry::check()) {
+        return Redirect::guest("admin");
     }
-});
-
-
-Route::filter('auth.basic', function()
-{
-	return Auth::basic();
 });
 
 /*
