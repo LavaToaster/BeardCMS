@@ -28,8 +28,8 @@ App::missing(function($exception) {
 });
 
 App::error(function($exception) {
-    /* If we're debugging the app, don't catch any errors! */
-    if(Config::get("app.debug")) {
+    /* If we're debugging the app or invoking from the cli, don't catch any errors! */
+    if(Config::get("app.debug") || php_sapi_name() === 'cli') {
         return null;
     }
 
