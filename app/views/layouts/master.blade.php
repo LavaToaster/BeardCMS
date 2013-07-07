@@ -6,10 +6,10 @@
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <link rel="stylesheet" href="{{ URL::asset( 'packages/bootstrap/css/bootstrap.css' ) }}">
+        <!--<link rel="stylesheet" href="{{ URL::asset( 'packages/bootstrap/css/bootstrap.css' ) }}">-->
         <!-- Responsiveness later! First lets focus on getting this ready. -->
         <!--<link rel="stylesheet" href="{{ URL::asset( 'packages/bootstrap/css/bootstrap-responsive.css' ) }}">-->
-        <link rel="stylesheet" href="{{ URL::asset( 'css/beardcms.css' ) }}">
+        <link rel="stylesheet" href="{{ URL::asset( 'css/styles.min.css' ) }}">
 
         @yield('css')
 
@@ -29,8 +29,8 @@
                             </ul>
                         </div>
                     </div>
-                </div>
-            </nav>
+                </nav>
+            </div>
         </div>
 
         <div class="content">
