@@ -2,7 +2,7 @@
 
 class AdminPageController extends AdminController
 {
-    public function getIndex()
+    public function index()
     {
         $pages = Page::all();
 

@@ -15,7 +15,7 @@
 //Admin Routes
 Route::group(['prefix' => 'admin','before' => 'auth'], function() {
     Route::controller('dashboard', 'AdminDashboardController');
-    Route::controller('pages', 'AdminPageController');
+    Route::resource('pages', 'AdminPageController');
 });
 
 Route::controller('admin', 'LoginController');
