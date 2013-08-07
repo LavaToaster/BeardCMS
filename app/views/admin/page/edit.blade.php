@@ -22,9 +22,9 @@ Edit Page | BeardCMS ACP
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-lg-2 control-label" for="content">Content</label>
+                    <label class="col-lg-2 control-label" for="page_content">Content</label>
                     <div class="col-lg-10">
-                        {{ Form::textarea('content', $page->content, ['class' => 'form-control']) }}
+                        {{ Form::textarea('page_content', $page->content, ['class' => 'form-control']) }}
                     </div>
                 </div>
                 <button type="submit" name="submit" class="btn btn-info btn-block btn-large">Edit Page</button>
@@ -33,4 +33,14 @@ Edit Page | BeardCMS ACP
         </div>
     </div>
 </div>
+@endsection
+
+@section('js')
+<script src="{{ URL::asset('js/vendor/ckeditor/ckeditor.js') }}"></script>
+<script>
+    CKEDITOR.replace('page_content',  {
+        toolbar: [],
+        startupMode : 'source'
+    });
+</script>
 @endsection

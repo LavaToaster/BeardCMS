@@ -21,7 +21,7 @@ class AdminPageController extends AdminController
 
         $page->title   = Input::input('title');
         $page->slug    = Input::input('slug');
-        $page->content = Input::input('content');
+        $page->content = Input::input('page_content');
 
         $page->save();
 
