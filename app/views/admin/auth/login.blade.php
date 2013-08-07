@@ -3,41 +3,31 @@ Login | BeardCMS ACP
 @endsection
 
 @section("content")
-<div class="container">
-    <form method="POST" action="">
-        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-        <h2>Admin Panel</h2>
-        <div id="loginMessages"></div>
-        <div class="form-horizontal" id="loginArea">
-            <div id="loginMessages">
-                @if(count($errors))
-                <div class="alert alert-error">
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    <strong>There were errors processing your login request:</strong> <br />
-                    <ul>
-                    @foreach($errors as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                    </ul>
-                </div>
-                @endif
-            </div>
-            <div class="control-group">
-                <label class="control-label" for="email">Email</label>
-                <div class="controls">
-                    <input type="email" name="email" id="email" placeholder="admin@example.com" required>
+<div class="col-lg-offset-3 col-lg-6 well">
+    <fieldset>
+        <legend>Please Sign In</legend>
+        {{ Form::open(array('url' => '/admin/login', 'class' => 'form-horizontal')) }}
+            <div class="form-group">
+                <label class="col-lg-3 control-label" for="email">Email</label>
+                <div class="col-lg-9">
+                    <input class="form-control" placeholder="admin@example.com" id="email" name="email" type="text">
                 </div>
             </div>
-            <div class="control-group">
-                <label class="control-label" for="password">Password</label>
-                <div class="controls">
-                    <input type="password" name="password" id="password" placeholder="********" required>
+            <div class="form-group">
+                <label class="col-lg-3 control-label" for="password">Password</label>
+                <div class="col-lg-9">
+                    <input class="form-control" placeholder="*********" id="password" name="password" type="password"> <br>
                 </div>
             </div>
-        </div>
-        <div class="form-inline">
-            <button type="submit" id="login" class="btn btn-large btn-primary">Sign in</button>
-        </div>
-    </form>
+            <div class="form-group">
+                <div class="col-lg-offset-3 col-lg-9">
+                    <label class="checkbox">
+                        <input type="checkbox" name="rememberme" value="1"> Remember Me
+                    </label>
+                </div>
+            </div>
+            <button type="submit" name="submit" class="btn btn-info btn-block btn-large">Sign in</button>
+        {{ Form::close(); }}
+    </fieldset>
 </div>
 @endsection
