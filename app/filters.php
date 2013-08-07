@@ -27,19 +27,6 @@ App::missing(function($exception) {
     return Response::view("errors.404", [], 404);
 });
 
-App::error(function($exception) {
-    /* If we're debugging the app or invoking from the cli, don't catch any errors! */
-    if(Config::get("app.debug") || php_sapi_name() === 'cli') {
-        return null;
-    }
-
-    if($exception instanceof \Illuminate\Database\Eloquent\ModelNotFoundException) {
-        return Response::view("errors.404", [], 404);
-    }
-
-    return Response::view("errors.500", [], 500);
-});
-
 /*
 |--------------------------------------------------------------------------
 | Authentication Filters

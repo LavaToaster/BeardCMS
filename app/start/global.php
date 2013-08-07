@@ -48,10 +48,21 @@ Log::useDailyFiles(storage_path().'/logs/'.$logFile);
 |
 */
 
-App::error(function(Exception $exception, $code)
-{
-	Log::error($exception);
+App::error(function(Exception $exception, $code) {
+    /* If we're debugging the app or invoking from the cli, don't catch any errors! */
+    if(Config::get("app.debug") || php_sapi_name() === 'cli') {
+        return null;
+    }
+
+    Log::error($exception);
+
+    if($exception instanceof \Illuminate\Database\Eloquent\ModelNotFoundException) {
+        return Response::view("errors.404", [], 404);
+    }
+
+    return Response::view("errors.500", [], 500);
 });
+
 
 /*
 |--------------------------------------------------------------------------
