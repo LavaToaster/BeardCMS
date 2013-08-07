@@ -10,7 +10,7 @@ body {
     background: #f2825b;
 }
 
-#full-page .hero-unit {
+#full-page .jumbotron {
     margin: 10% auto 0;
     width: 800px;
 }

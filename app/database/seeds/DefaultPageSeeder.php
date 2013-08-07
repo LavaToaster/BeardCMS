@@ -7,7 +7,7 @@ class DefaultPageSeeder extends Seeder {
         $page->title   = 'Home';
         $page->slug    = 'index.html';
         $page->content = '<div id="full-page">
-    <div class="hero-unit">
+    <div class="jumbotron">
         <h1>Hello World!</h1>
         <p>Welcome to the default BeardCMS page.</p>
     </div>
