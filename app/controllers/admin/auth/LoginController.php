@@ -21,8 +21,8 @@ class LoginController extends AdminController
         try
         {
             $credentials = array(
-                'email'    => Input::get('email'),
-                'password' => Input::get('password'),
+                'email'    => Input::input('email'),
+                'password' => Input::input('password'),
             );
 
             Sentry::authenticate($credentials, true);
