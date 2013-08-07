@@ -6,6 +6,6 @@ class AdminPageController extends AdminController
     {
         $pages = Page::all();
 
-        $this->layout->content = View::make('admin.page.pagelist')->with('pages', $pages);
+        $this->layout->content = View::make('admin.page.list')->with('pages', $pages);
     }
 }
