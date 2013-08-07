@@ -6,38 +6,40 @@
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <!--<link rel="stylesheet" href="{{ URL::asset( 'packages/bootstrap/css/bootstrap.css' ) }}">-->
-        <!-- Responsiveness later! First lets focus on getting this ready. -->
-        <!--<link rel="stylesheet" href="{{ URL::asset( 'packages/bootstrap/css/bootstrap-responsive.css' ) }}">-->
-        <link rel="stylesheet" href="{{ URL::asset( 'css/styles.min.css' ) }}">
+        <link rel="stylesheet" href="{{ URL::asset( 'css/vendor/bootstrap/bootstrap.css' ) }}">
+        <link rel="stylesheet" href="{{ URL::asset( 'css/beardcms.css' ) }}">
 
         @yield('css')
 
     </head>
     <body>
-
-        <div class="row">
-            <div class="span12">
-                <nav class="navbar navbar-inverse navbar-fixed-top">
-                    <div class="navbar-inner">
-                        <div class="container">
-                            <a class="brand" href="#">BeardCMS</a>
-                            <ul class="nav">
-                                @foreach( $navitems as $item )
-                                    <li @if($item->isActive())class="active"@endif><a href="{{ $item->url }}" title="{{ $item->title }}">{{ $item->name }}</a></li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
+        <!-- Nav Bar -->
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">BeardCMS</a>
+                <div class="nav-collapse collapse navbar-responsive-collapse">
+                    <ul class="nav navbar-nav">
+                        @foreach( $navitems as $item )
+                        <li @if($item->isActive())class="active"@endif><a href="{{ $item->url }}" title="{{ $item->title }}">{{ $item->name }}</a></li>
+                        @endforeach
+                    </ul>
+                </div>
             </div>
         </div>
+        <!-- /Nav Bar -->
 
-        <div class="content">
+        <!-- Content -->
+        <div id="content" class="container">
 
             @yield('content')
 
         </div>
+        <!-- /Content -->
 
         <footer>
             &copy; 2013 Bearded Robot
