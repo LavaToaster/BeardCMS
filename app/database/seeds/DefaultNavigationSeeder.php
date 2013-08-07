@@ -18,7 +18,7 @@ class DefaultNavigationSeeder extends Seeder
         Navigation::insert([
             'name'  => 'Pages',
             'title' => 'Go to the page lsit',
-            'url'   => 'admin/pages',
+            'url'   => 'admin/page',
             'type'  => 2
         ]);
 
