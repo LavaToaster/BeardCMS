@@ -13,16 +13,15 @@
 
 
 //Admin Routes
-Route::group(['before' => 'auth'], function() {
-    Route::controller('admin/dashboard', 'AdminDashboardController');
-    Route::controller('admin/pages', 'AdminPageController');
+Route::group(['prefix' => 'admin','before' => 'auth'], function() {
+    Route::controller('dashboard', 'AdminDashboardController');
+    Route::controller('pages', 'AdminPageController');
 });
 
-/* Temp logout route */
+Route::controller('admin', 'LoginController');
 Route::get('admin/logout', function() {
     Sentry::logout();
     return Redirect::to('admin/login');
 });
 
-Route::controller('admin', 'LoginController');
 Route::any('{slug}', 'PageController@setPage')->where('slug', '(.*)');
