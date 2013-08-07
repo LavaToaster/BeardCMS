@@ -56,11 +56,16 @@ App::error(function(Exception $exception, $code) {
 
     Log::error($exception);
 
+    $layout = View::make('layouts.master');
+    $layout->with("navitems", Navigation::all());
+
     if($exception instanceof \Illuminate\Database\Eloquent\ModelNotFoundException) {
-        return Response::view("errors.404", [], 404);
+        $layout->content = View::make('errors.404');
+        return Response::make($layout);
     }
 
-    return Response::view("errors.500", [], 500);
+    $layout->content = View::make('errors.500');
+    return Response::make($layout);
 });
 
 

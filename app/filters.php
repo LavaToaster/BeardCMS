@@ -24,7 +24,9 @@ App::after(function($request, $response)
 
 
 App::missing(function($exception) {
-    return Response::view("errors.404", [], 404);
+    $layout = View::make('layouts.master')->with("navitems", []);
+    $layout->content = View::make('errors.404');
+    return Response::make($layout);
 });
 
 /*
