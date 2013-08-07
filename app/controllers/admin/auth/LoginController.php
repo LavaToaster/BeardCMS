@@ -58,7 +58,7 @@ class LoginController extends AdminController
             $this->errors[] = Lang::get('auth.account_banned');
         }
 
-        $this->getIndex();
+        return $this->getIndex();
     }
 
     public function getIndex()
