@@ -1,7 +1,7 @@
 @extends("layouts.master")
 
 @section("title")
-Page not found | BeardCMS
+Error | BeardCMS
 @endsection
 
 @section("content")
