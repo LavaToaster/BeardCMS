@@ -17,7 +17,7 @@ class CreatePageTable extends Migration {
             $table->string("title");
             $table->string("slug")->unique();
             $table->text("content");
-            $table->boolean('default')->default(false);
+            $table->boolean('isDefault')->default(false);
 
             $table->timestamps();
             $table->softDeletes();

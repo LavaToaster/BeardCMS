@@ -12,7 +12,7 @@ class DefaultPageSeeder extends Seeder {
         <p>Welcome to the default BeardCMS page.</p>
     </div>
 </div>';
-        $page->default = true;
+        $page->isDefault = true;
 
         $page->save();
     }
