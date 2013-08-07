@@ -33,6 +33,13 @@
         </div>
         <!-- /Nav Bar -->
 
+        <!-- Messages -->
+        @if(Session::has('message'))
+        <div class="alert @if(Session::has('message-type')) {{ Session::get('message-type') }} @endif container">
+            {{ Session::get('message') }} <button type="button" class="close" data-dismiss="alert">&times;</button>
+        </div>
+        @endif
+
         <!-- Content -->
         <div id="content">
 
