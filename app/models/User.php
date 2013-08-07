@@ -1,6 +1,6 @@
 <?php
 
-class Users extends Eloquent implements Cartalyst\Sentry\Users\UserInterface {
+class User extends Eloquent implements Cartalyst\Sentry\Users\UserInterface {
 
     /**
      * The table associated with the model.
