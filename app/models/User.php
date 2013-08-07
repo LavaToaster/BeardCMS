@@ -457,7 +457,7 @@ class User extends Eloquent implements Cartalyst\Sentry\Users\UserInterface {
      * @param  Cartalyst\Sentry\Groups\GroupInterface  $group
      * @return bool
      */
-    public function addGroup(GroupInterface $group)
+    public function addGroup(Cartalyst\Sentry\Groups\GroupInterface $group)
     {
         if ( ! $this->inGroup($group))
         {
