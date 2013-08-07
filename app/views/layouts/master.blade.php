@@ -34,16 +34,16 @@
         <!-- /Nav Bar -->
 
         <!-- Content -->
-        <div id="content" class="container">
+        <div id="content">
 
             @yield('content')
 
         </div>
         <!-- /Content -->
 
-        <footer>
+        <!--<footer class="container">
             &copy; 2013 Bearded Robot
-        </footer>
+        </footer>-->
 
         <script src="{{ URL::asset( 'packages/jquery/js/jquery-2.0.2.js' ) }}"></script>
         <script src="{{ URL::asset( 'packages/bootstrap/js/bootstrap.js' ) }}"></script>
