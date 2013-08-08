@@ -30,6 +30,18 @@
                         <li @if($item->isActive())class="active"@endif><a href="{{ $item->url }}" title="{{ $item->title }}">{{ $item->name }}</a></li>
                         @endforeach
                     </ul>
+                    @if(Sentry::check())
+                    <ul class="nav navbar-nav pull-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ Sentry::getUser()->first_name }} {{ Sentry::getUser()->last_name }} <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <!-- Put in some user specific links here, such as change details/password/email etc... -->
+                                <li class="divider"></li>
+                                <li><a target="_self" href="/admin/logout"><i class="icon-off"></i> Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    @endif
                 </div>
             </div>
         </div>
