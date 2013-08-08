@@ -7,6 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
         <link rel="stylesheet" href="{{ URL::asset( 'css/vendor/bootstrap/bootstrap.css' ) }}">
+        <link rel="stylesheet" href="{{ URL::asset( 'css/vendor/fontawesome/font-awesome.css' ) }}">
         <link rel="stylesheet" href="{{ URL::asset( 'css/beardcms.css' ) }}">
 
         @yield('css')
