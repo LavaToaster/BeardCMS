@@ -11,15 +11,14 @@
 |
 */
 
-
 //Admin Routes
+Route::controller('admin/login', 'LoginController');
+Route::get('admin/logout', 'LoginController@getLogout');
+
 Route::group(['prefix' => 'admin', 'before' => 'auth'], function() {
     Route::resource('page', 'AdminPageController');
 
     Route::controller('/', 'AdminDashboardController');
 });
-
-Route::controller('admin/login', 'LoginController');
-Route::get('admin/logout', 'LoginController@getLogout');
 
 Route::any('{slug}', 'PageController@showPage')->where('slug', '(.*)');
