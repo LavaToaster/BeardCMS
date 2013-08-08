@@ -38,7 +38,7 @@ Edit Page | BeardCMS ACP
                     </div>
                 </div>
                 <button type="submit" name="submit" class="btn btn-info btn-block btn-large">Create Page</button>
-                {{ Form::close(); }}
+                {{ Form::close() }}
             </fieldset>
         </div>
     </div>
