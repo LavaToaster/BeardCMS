@@ -27,8 +27,8 @@ Pages | BeardCMS ACP
                 <tbody>
                     @foreach($pages as $page)
                     <tr id="page-{{ $page->id }}">
-                        <td>{{ $page->title }}</td>
-                        <td>{{ $page->slug }}</td>
+                        <td><strong>{{ $page->title }}</strong></td>
+                        <td><em>{{ $page->slug }}</em></td>
                         <td>
                             <div class="btn-group pull-right">
                                 <a href="{{ URL::to('admin/page/'.$page->id.'/edit') }}" class="ladda-button btn btn-default" data-style="slide-up"><i class="icon-edit"></i> Edit</a>
