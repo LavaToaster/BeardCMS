@@ -7,7 +7,7 @@ class LoginController extends AdminController
     /**
      * Shows the login form
      */
-    public function getLogin()
+    public function getIndex()
     {
         if (Sentry::check()) {
             return Redirect::to('admin/dashboard');
@@ -20,7 +20,7 @@ class LoginController extends AdminController
     /**
      * Processes the login request
      */
-    public function postLogin()
+    public function postIndex()
     {
         try
         {
@@ -62,11 +62,13 @@ class LoginController extends AdminController
             $this->errors[] = Lang::get('auth.account_banned');
         }
 
-        return $this->getLogin();
+        return $this->getIndex();
     }
 
-    public function getIndex()
+    public function getLogout()
     {
-        return Redirect::action("LoginController@getLogin");
+        Sentry::logout();
+        return Redirect::action('LoginController@getIndex');
     }
+
 }
