@@ -1,4 +1,17 @@
-<?php
+<?php namespace Admin;
+
+use Input;
+use Lang;
+use View;
+use Redirect;
+use Sentry;
+use Cartalyst\Sentry\Throttling\UserBannedException;
+use Cartalyst\Sentry\Throttling\UserSuspendedException;
+use Cartalyst\Sentry\Users\LoginRequiredException;
+use Cartalyst\Sentry\Users\PasswordRequiredException;
+use Cartalyst\Sentry\Users\UserNotActivatedException;
+use Cartalyst\Sentry\Users\UserNotFoundException;
+use Cartalyst\Sentry\Users\WrongPasswordException;
 
 class LoginController extends AdminController
 {
@@ -33,31 +46,31 @@ class LoginController extends AdminController
 
             return Redirect::intended('admin/dashboard');
         }
-        catch (Cartalyst\Sentry\Users\LoginRequiredException $e)
+        catch (LoginRequiredException $e)
         {
             $this->errors[] = Lang::get("auth.login_required");
         }
-        catch (Cartalyst\Sentry\Users\PasswordRequiredException $e)
+        catch (PasswordRequiredException $e)
         {
             $this->errors[] = Lang::get('auth.missing_password');
         }
-        catch (Cartalyst\Sentry\Users\WrongPasswordException $e)
+        catch (WrongPasswordException $e)
         {
             $this->errors[] = Lang::get('auth.wrong_password');
         }
-        catch (Cartalyst\Sentry\Users\UserNotFoundException $e)
+        catch (UserNotFoundException $e)
         {
             $this->errors[] = Lang::get('auth.account_not_found');
         }
-        catch (Cartalyst\Sentry\Users\UserNotActivatedException $e)
+        catch (UserNotActivatedException $e)
         {
             $this->errors[] = Lang::get('auth.account_not_activated');
         }
-        catch (Cartalyst\Sentry\Throttling\UserSuspendedException $e)
+        catch (UserSuspendedException $e)
         {
             $this->errors[] = Lang::get('auth.account_suspended');
         }
-        catch (Cartalyst\Sentry\Throttling\UserBannedException $e)
+        catch (UserBannedException $e)
         {
             $this->errors[] = Lang::get('auth.account_banned');
         }
@@ -68,7 +81,7 @@ class LoginController extends AdminController
     public function getLogout()
     {
         Sentry::logout();
-        return Redirect::action('LoginController@getIndex');
+        return Redirect::action('Admin\LoginController@getIndex');
     }
 
 }

@@ -1,10 +1,13 @@
-<?php
+<?php namespace Admin;
+
+use BaseController;
+use Navigation;
 
 abstract class AdminController extends BaseController {
 
     /**
      * @note Temp until the admin template is ready
-     * @var Illuminate\View\View
+     * @var \Illuminate\View\View
      */
     protected $layout = "layouts.master";
 

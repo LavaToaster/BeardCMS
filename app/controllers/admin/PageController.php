@@ -1,6 +1,14 @@
-<?php
+<?php namespace Admin;
 
-class AdminPageController extends AdminController
+use Input;
+use Page;
+use Redirect;
+use Response;
+use URL;
+use Validator;
+use View;
+
+class PageController extends AdminController
 {
     public function index()
     {
