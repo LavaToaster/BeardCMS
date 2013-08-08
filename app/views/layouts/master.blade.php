@@ -8,6 +8,7 @@
 
         <link rel="stylesheet" href="{{ URL::asset( 'css/vendor/bootstrap/bootstrap.css' ) }}">
         <link rel="stylesheet" href="{{ URL::asset( 'css/vendor/fontawesome/font-awesome.css' ) }}">
+        <link rel="stylesheet" href="{{ URL::asset( 'css/vendor/ladda/ladda.css' ) }}">
         <link rel="stylesheet" href="{{ URL::asset( 'css/beardcms.css' ) }}">
 
         @yield('css')
@@ -55,6 +56,13 @@
 
         <script src="{{ URL::asset( 'js/vendor/jquery/jquery-2.0.2.js' ) }}"></script>
         <script src="{{ URL::asset( 'js/vendor/bootstrap/bootstrap.js' ) }}"></script>
+        <script src="{{ URL::asset( 'js/vendor/ladda/spin.js' ) }}"></script>
+        <script src="{{ URL::asset( 'js/vendor/ladda/ladda.js' ) }}"></script>
+        <script>
+            Ladda.bind(".ladda-button", {
+                timeout: 3000
+            })
+        </script>
 
         @yield('js')
 
