@@ -53,8 +53,8 @@
             &copy; 2013 Bearded Robot
         </footer>-->
 
-        <script src="{{ URL::asset( 'packages/jquery/js/jquery-2.0.2.js' ) }}"></script>
-        <script src="{{ URL::asset( 'packages/bootstrap/js/bootstrap.js' ) }}"></script>
+        <script src="{{ URL::asset( 'js/vendor/jquery/jquery-2.0.2.js' ) }}"></script>
+        <script src="{{ URL::asset( 'js/vendor/bootstrap/bootstrap.js' ) }}"></script>
 
         @yield('js')
 
