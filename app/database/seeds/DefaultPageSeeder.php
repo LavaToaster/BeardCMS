@@ -9,7 +9,7 @@ class DefaultPageSeeder extends Seeder {
         $page->type     = 'page';
         $page->template = 'none';
         $page->content  = '<div id="full-page">
-    <div class="jumbotron">
+    <div class="jumbotron container">
         <h1>Hello World!</h1>
         <p>Welcome to the default BeardCMS page.</p>
     </div>
