@@ -65,16 +65,13 @@ Pages | BeardCMS ACP
 
                 $('#alerts').prepend("<div id=\"loginSuccess\" class=\"alert alert-success\"> " + result.message + " </div>").hide().fadeIn('slow', function () {
                     window.setTimeout(function () {
-                        console.log("Supposed to be fading out now");
                         $('#alerts').fadeOut("fast", function () {
                             $('#alerts').remove();
                         });
                     }, 2000);
                 });
 
-                console.log("Supposed to be fading out the row now");
                 $("#page-" + id).fadeOut(1000, function () {
-                    console.log("Supposed to be removing row out now");
                     $("#page-" + id).remove();
                 });
             } else {
