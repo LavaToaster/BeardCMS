@@ -13,3 +13,4 @@
 
 Artisan::add(new Refresh);
 Artisan::add(new Install);
+Artisan::add(new AddUser);
