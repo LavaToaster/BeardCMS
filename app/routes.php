@@ -24,4 +24,4 @@ Route::get('admin/logout', function() {
     return Redirect::to('admin/login');
 });
 
-Route::any('{slug}', 'PageController@setPage')->where('slug', '(.*)');
+Route::any('{slug}', 'PageController@showPage')->where('slug', '(.*)');
