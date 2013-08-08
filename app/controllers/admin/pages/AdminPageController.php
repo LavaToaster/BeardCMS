@@ -11,7 +11,6 @@ class AdminPageController extends AdminController
 
     public function create()
     {
-        var_dump(Session::get('errors'));
         $this->layout->content = View::make('admin.page.create');
     }
 
