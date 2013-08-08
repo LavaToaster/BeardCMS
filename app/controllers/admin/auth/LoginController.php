@@ -9,6 +9,10 @@ class LoginController extends AdminController
      */
     public function getLogin()
     {
+        if (Sentry::check()) {
+            return Redirect::to('admin/dashboard');
+        }
+
         $this->layout->with('navitems', []);
         $this->layout->content = View::make('admin.auth.login')->with('errors', $this->errors);
     }
