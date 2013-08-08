@@ -4,6 +4,8 @@ class Page extends Eloquent {
 
     protected $guarded = ['id'];
 
+    protected $softDelete = true;
+
     /**
      * Checks if the page exists
      *

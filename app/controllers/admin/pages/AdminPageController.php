@@ -60,7 +60,13 @@ class AdminPageController extends AdminController
 
         $page->save();
 
-        return Redirect::to("/admin/page")->with('message', 'The page was edited successfully.')->with('message-type', 'alert-success');
+        return Redirect::to('/admin/page')->with('message', 'The page was edited successfully.')->with('message-type', 'alert-success');
     }
 
+    public function destroy($id)
+    {
+        Page::find($id)->delete();
+
+        return Redirect::to('/admin/page')->with('message', 'The page was deleted successfully.')->with('message-type', 'alert-success');
+    }
 }
