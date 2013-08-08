@@ -9,7 +9,7 @@ Pages | BeardCMS ACP
             <h1>Pages</h1>
         </div>
         <div class="col-6">
-            <a href="{{ URL::to('admin/page/create') }}" class="btn btn-large btn-primary pull-right">Create Page</a>
+            <h2><a href="{{ URL::to('admin/page/create') }}" class="btn btn-large btn-primary pull-right">Create Page</a></h2>
         </div>
     </div>
     <hr >
