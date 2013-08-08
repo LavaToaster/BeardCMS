@@ -4,9 +4,11 @@ class DefaultPageSeeder extends Seeder {
     public function run() {
         $page = new Page;
 
-        $page->title   = 'Home';
-        $page->slug    = 'index.html';
-        $page->content = '<div id="full-page">
+        $page->title    = 'Home';
+        $page->slug     = 'index.html';
+        $page->type     = 'page';
+        $page->template = 'none';
+        $page->content  = '<div id="full-page">
     <div class="jumbotron">
         <h1>Hello World!</h1>
         <p>Welcome to the default BeardCMS page.</p>

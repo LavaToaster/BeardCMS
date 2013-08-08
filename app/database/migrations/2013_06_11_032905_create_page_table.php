@@ -13,10 +13,12 @@ class CreatePageTable extends Migration {
 	{
         Schema::create("pages" , function(\Illuminate\Database\Schema\Blueprint $table) {
             /* Create the columns */
-            $table->increments("id");
-            $table->string("title");
-            $table->string("slug")->unique();
+            $table->increments('id');
+            $table->string('title');
+            $table->string('slug')->unique();
             $table->mediumText("content");
+            $table->string('type');
+            $table->string('template')->nullable();
             $table->boolean('isDefault')->default(false);
 
             $table->timestamps();
@@ -31,7 +33,7 @@ class CreatePageTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop("pages");
+		Schema::drop('pages');
 	}
 
 }
