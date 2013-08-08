@@ -6,9 +6,11 @@ class DefaultUserSeeder extends Seeder {
         {
             // Create the user
             $user = Sentry::getUserProvider()->create(array(
-                'email'     => 'admin@example.com',
-                'password'  => 'test',
-                'activated' => '1'
+                'email'      => 'admin@example.com',
+                'password'   => 'test',
+                'activated'  => '1',
+                'first_name' => 'Test',
+                'last_name'  => 'Admin'
             ));
 
             // Find the group using the group id
