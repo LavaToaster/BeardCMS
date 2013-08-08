@@ -9,7 +9,7 @@ Pages | BeardCMS ACP
             <h1>Pages</h1>
         </div>
         <div class="col-6">
-            <h2><a href="{{ URL::to('admin/page/create') }}" class="btn btn-large btn-primary pull-right">Create Page</a></h2>
+            <h2><a href="{{ URL::to('admin/page/create') }}" class="ladda-button btn btn-large btn-primary pull-right" data-style="expand-right">Create Page</a></h2>
         </div>
     </div>
     <hr >
@@ -31,8 +31,8 @@ Pages | BeardCMS ACP
                         <td>{{ $page->slug }}</td>
                         <td>
                             <div class="btn-group pull-right">
-                                <a href="{{ URL::to('admin/page/'.$page->id.'/edit') }}" class="btn btn-default"><i class="icon-edit"></i> Edit</a>
-                                <a href="#" id="delete-{{ $page->id }}" class="btn btn-danger"><i class="icon-remove"></i> Delete</a>
+                                <a href="{{ URL::to('admin/page/'.$page->id.'/edit') }}" class="ladda-button btn btn-default" data-style="slide-up"><i class="icon-edit"></i> Edit</a>
+                                <a href="#" id="delete-{{ $page->id }}" class="ladda-button btn btn-danger" data-style="slide-up"><i class="icon-remove"></i> Delete</a>
                             </div>
                         </td>
                     </tr>

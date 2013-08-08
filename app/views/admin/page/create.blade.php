@@ -37,7 +37,7 @@ Edit Page | BeardCMS ACP
                         {{ Form::textarea('page_content', Input::old('content'), ['class' => 'form-control']) }}
                     </div>
                 </div>
-                <button type="submit" name="submit" class="btn btn-info btn-block btn-large">Create Page</button>
+                <button type="submit" name="submit"class="ladda-button btn btn-info btn-block btn-large" data-style="slide-up">Create Page</button>
                 {{ Form::close() }}
             </fieldset>
         </div>

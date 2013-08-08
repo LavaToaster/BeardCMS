@@ -28,7 +28,7 @@ Login | BeardCMS ACP
                             </label>
                         </div>
                     </div>
-                    <button type="submit" name="submit" class="btn btn-info btn-block btn-large">Sign in</button>
+                    <button type="submit" name="submit" class="ladda-button btn btn-info btn-block btn-large" data-style="slide-up">Sign in</button>
                 {{ Form::close(); }}
             </fieldset>
         </div>
