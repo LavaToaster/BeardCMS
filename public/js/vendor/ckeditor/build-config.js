@@ -24,7 +24,6 @@ var CKBUILDER_CONFIG = {
 		'.mailmap'
 	],
 	plugins : {
-		'about' : 1,
 		'a11yhelp' : 1,
 		'basicstyles' : 1,
 		'blockquote' : 1,
@@ -71,7 +70,7 @@ var CKBUILDER_CONFIG = {
 		'indent' : 1,
 		'fakeobjects' : 1,
 		'menubutton' : 1,
-		'codemirror' : 1
+		'about' : 1
 	},
 	languages : {
 		'en' : 1,

@@ -36,8 +36,10 @@ CKEDITOR.editorConfig = function( config ) {
 	// Make dialogs simpler.
 	config.removeDialogTabs = 'image:advanced;link:advanced';
 	
+	config.extraPlugins = 'codemirror';
+
 	config.codemirror = {
-	
+
 		// Set this to the theme you wish to use (codemirror themes)
 		theme: 'default',
 
@@ -98,4 +100,5 @@ CKEDITOR.editorConfig = function( config ) {
 		 // Whether or not to show the showAutoCompleteButton button on the toolbar
 		showAutoCompleteButton: true
 	};
+
 };
