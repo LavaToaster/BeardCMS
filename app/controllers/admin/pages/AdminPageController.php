@@ -65,8 +65,6 @@ class AdminPageController extends AdminController
 
     public function destroy($id)
     {
-        Page::find($id)->delete();
-
-        return Redirect::to('/admin/page')->with('message', 'The page was deleted successfully.')->with('message-type', 'alert-success');
+        return Page::find($id)->delete() ? Response::json(['success' => true, 'message' => 'The page was deleted successfully.']) : Response::json(['success' => false, 'message' => 'There was an error attempting to delete the page']);
     }
 }
