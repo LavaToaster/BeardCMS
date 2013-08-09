@@ -32,6 +32,12 @@ Edit Page | BeardCMS ACP
                     </div>
                 </div>
                 <div class="form-group">
+                    <label class="col-lg-2 control-label" for="template">Template</label>
+                    <div class="col-lg-10">
+                        {{ Form::select('template', $templates, Input::old('template'),['class' => 'form-control']) }}
+                    </div>
+                </div>
+                <div class="form-group">
                     <label class="col-lg-2 control-label" for="page_content">Content</label>
                     <div class="col-lg-10">
                         {{ Form::textarea('page_content', Input::old('content'), ['class' => 'form-control']) }}

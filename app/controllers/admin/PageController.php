@@ -10,6 +10,10 @@ use View;
 
 class PageController extends AdminController
 {
+    protected $templates = [
+        'none' => 'None'
+    ];
+
     public function index()
     {
         $pages = Page::all();
@@ -19,7 +23,7 @@ class PageController extends AdminController
 
     public function create()
     {
-        $this->layout->content = View::make('admin.page.create');
+        $this->layout->content = View::make('admin.page.create')->with('templates', $this->templates);
     }
 
     public function store()
@@ -27,7 +31,8 @@ class PageController extends AdminController
         $validator = Validator::make(Input::input(), [
             'title'        => 'required',
             'slug'         => 'required|unique:pages,slug',
-            'page_content' => 'required'
+            'page_content' => 'required',
+            'template'     => 'required|in:' . implode(',', array_keys($this->templates))
         ], [
             'title.required'        => 'You must enter a page title.',
             'slug.required'         => 'You must enter a page slug.',
@@ -42,9 +47,11 @@ class PageController extends AdminController
 
         $page = new Page;
 
-        $page->title   = Input::input('title');
-        $page->slug    = Input::input('slug');
-        $page->content = Input::input('page_content');
+        $page->title    = Input::input('title');
+        $page->slug     = Input::input('slug');
+        $page->type     = 'page';
+        $page->template = Input::input('template');
+        $page->content  = Input::input('page_content');
 
         $page->save();
 
@@ -54,7 +61,7 @@ class PageController extends AdminController
     public function edit($id)
     {
         $page = Page::findOrFail($id);
-        $this->layout->content = View::make('admin.page.edit')->with('page', $page);
+        $this->layout->content = View::make('admin.page.edit')->with('page', $page)->with('templates', $this->templates);
     }
 
     public function update($id)
