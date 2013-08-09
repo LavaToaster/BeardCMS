@@ -16,6 +16,7 @@
     </head>
     <body>
         <!-- Nav Bar -->
+        @section('navbar')
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
@@ -45,6 +46,7 @@
                 </div>
             </div>
         </div>
+        @show
         <!-- /Nav Bar -->
 
         <!-- Messages -->
