@@ -27,7 +27,7 @@ class Page extends Eloquent {
     /**
      * Attempts to find and return the page
      *
-     * @param string|int $identifier Page ID (int) or Page URI (string)
+     * @param string|int $identifier Page ID (int) or Page slug (string)
 
      * @return Page
      *
