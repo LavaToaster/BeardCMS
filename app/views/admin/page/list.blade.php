@@ -59,7 +59,7 @@ Pages | BeardCMS ACP
     $("a[id^=delete-]").on('click',function(){
         var id = $(this).attr('id').split("-")[1];
 
-        var del = $.post( "{{ URL::to('admin/page/') }}" + id, {
+        var del = $.post( "{{ URL::to('admin/page/') }}/" + id, {
             _method: "DELETE",
             _token: "{{ csrf_token() }}"
         });
