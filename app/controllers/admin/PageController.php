@@ -30,7 +30,7 @@ class PageController extends AdminController
     {
         return Validator::make(Input::input(), [
             'title'                 => 'required',
-            'slug'                  => 'required'. $uniqueSlug ? '|unique:pages,slug' : '',
+            'slug'                  => 'required' . ( $uniqueSlug ? '|unique:pages,slug' : '' ),
             'page_content'          => 'required',
             'template'              => 'required|in:' . implode(',', array_keys($this->templates))
         ], [

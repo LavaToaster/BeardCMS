@@ -8,29 +8,39 @@ Edit Page | BeardCMS ACP
         <div class="col-12 well">
             <fieldset>
                 <legend>Editing {{ $page->title }}</legend>
+                @if(Session::has('errors'))
+                @foreach(Session::get('errors') as $error)
+                <div class="alert alert-error">
+                    <strong>Error!</strong> <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    @foreach($error as $message)
+                    {{ $message }} <br />
+                    @endforeach
+                </div>
+                @endforeach
+                @endif
                 {{ Form::model($page, array('method' => 'put', 'route' => ['admin.page.update', $page->id], 'class' => 'form-horizontal')) }}
                 <div class="form-group">
                     <label class="col-lg-2 control-label" for="title">Title</label>
                     <div class="col-lg-10">
-                        {{ Form::text('title', $page->title, ['class' => 'form-control', 'placeholder' => 'E.G: Home...']) }}
+                        {{ Form::text('title', Input::old('title') ?: $page->title, ['class' => 'form-control', 'placeholder' => 'E.G: Home...']) }}
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-lg-2 control-label" for="slug">Slug</label>
                     <div class="col-lg-10">
-                        {{ Form::text('slug', $page->slug, ['class' => 'form-control', 'placeholder' => 'home.html']) }}
+                        {{ Form::text('slug', Input::old('slug') ?: $page->slug, ['class' => 'form-control', 'placeholder' => 'home.html']) }}
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-lg-2 control-label" for="template">Template</label>
                     <div class="col-lg-10">
-                        {{ Form::select('template', $templates, Input::old('template'),['class' => 'form-control']) }}
+                        {{ Form::select('template', $templates, Input::old('template') ?: $page->template,['class' => 'form-control']) }}
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-lg-2 control-label" for="page_content">Content</label>
                     <div class="col-lg-10">
-                        {{ Form::textarea('page_content', $page->content, ['class' => 'form-control']) }}
+                        {{ Form::textarea('page_content', Input::old('content') ?: $page->content, ['class' => 'form-control']) }}
                     </div>
                 </div>
                 <button type="submit" name="submit" class="ladda-button btn btn-info btn-block btn-large" data-style="slide-up">Edit Page</button>
