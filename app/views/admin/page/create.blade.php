@@ -1,5 +1,5 @@
 @section("title")
-Edit Page | BeardCMS ACP
+Create Page | BeardCMS ACP
 @endsection
 
 @section("content")
