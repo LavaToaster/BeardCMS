@@ -16,12 +16,13 @@ Pages | BeardCMS ACP
     <div class="row">
         <div class="col-12">
             <div id="alerts"></div>
+            @if(count($pages))
             <table class="table table-hover">
                 <thead>
                     <tr>
                         <th>Page Title</th>
                         <th>Slug</th>
-                        <th></th>
+                        <th>Controls</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -39,6 +40,13 @@ Pages | BeardCMS ACP
                     @endforeach
                 </tbody>
             </table>
+            @else
+            <div class="jumbotron">
+                <h1><i class="icon-bullhorn"></i> It's lonely in here</h1>
+                <p>You should create a page.</p>
+                <a href="{{ URL::to('admin/page/create') }}" class="ladda-button btn btn-primary btn-large" data-style="expand-right">Create Page</a>
+            </div>
+            @endif
         </div>
     </div>
 </div>
@@ -51,7 +59,7 @@ Pages | BeardCMS ACP
     $("a[id^=delete-]").on('click',function(){
         var id = $(this).attr('id').split("-")[1];
 
-        var del = $.post( "{{ URL::to('admin/page/' . $page->id) }}", {
+        var del = $.post( "{{ URL::to('admin/page/') }}" + id, {
             _method: "DELETE",
             _token: "{{ csrf_token() }}"
         });
