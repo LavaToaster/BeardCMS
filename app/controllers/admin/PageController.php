@@ -67,19 +67,19 @@ class PageController extends AdminController
     {
         $page = Page::findOrFail($id);
 
-        $validator = $this->validate($page->slug !== Input::input('slug'));
-
-        if ($validator->fails()) {
-            Input::flashExcept('_token', 'submit');
-            return Redirect::to('admin/page/create')->with('errors', $validator->messages()->toArray());
-        }
-
         $this->layout->content = View::make('admin.page.edit')->with('page', $page)->with('templates', $this->templates);
     }
 
     public function update($id)
     {
         $page = Page::findOrFail($id);
+
+        $validator = $this->validate($page->slug !== Input::input('slug'));
+
+        if ($validator->fails()) {
+            Input::flashExcept('_token', 'submit');
+            return Redirect::to('admin/page/create')->with('errors', $validator->messages()->toArray());
+        }
 
         $page->title   = Input::input('title');
         $page->slug    = Input::input('slug');
