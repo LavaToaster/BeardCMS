@@ -30,7 +30,7 @@ class PageController extends AdminController
     {
         return Validator::make(Input::input(), [
             'title'        => 'required',
-            'slug'         => 'required|unique:pages,slug',
+            'slug'         => 'required'. $uniqueSlug ? '|unique:pages,slug' : '',
             'page_content' => 'required',
             'template'     => 'required|in:' . implode(',', array_keys($this->templates))
         ], [
@@ -78,7 +78,7 @@ class PageController extends AdminController
 
         if ($validator->fails()) {
             Input::flashExcept('_token', 'submit');
-            return Redirect::to('admin/page/create')->with('errors', $validator->messages()->toArray());
+            return Redirect::to('admin/page/'.$id.'/edit')->with('errors', $validator->messages()->toArray());
         }
 
         $page->title   = Input::input('title');
