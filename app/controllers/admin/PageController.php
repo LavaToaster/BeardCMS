@@ -29,10 +29,10 @@ class PageController extends AdminController
     protected function validate($uniqueSlug = false)
     {
         return Validator::make(Input::input(), [
-            'title'        => 'required',
-            'slug'         => 'required'. $uniqueSlug ? '|unique:pages,slug' : '',
-            'page_content' => 'required',
-            'template'     => 'required|in:' . implode(',', array_keys($this->templates))
+            'title'                 => 'required',
+            'slug'                  => 'required'. $uniqueSlug ? '|unique:pages,slug' : '',
+            'page_content'          => 'required',
+            'template'              => 'required|in:' . implode(',', array_keys($this->templates))
         ], [
             'title.required'        => 'You must enter a page title.',
             'slug.required'         => 'You must enter a page slug.',
