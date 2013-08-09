@@ -18,7 +18,7 @@ Edit Page | BeardCMS ACP
                 </div>
                 @endforeach
                 @endif
-                {{ Form::model($page, array('method' => 'put', 'route' => ['admin.page.update', $page->id], 'class' => 'form-horizontal')) }}
+                {{ Form::model($page, ['method' => 'put', 'route' => ['admin.page.update', $page->id], 'class' => 'form-horizontal']) }}
                 <div class="form-group">
                     <label class="col-lg-2 control-label" for="title">Title</label>
                     <div class="col-lg-10">
@@ -40,7 +40,7 @@ Edit Page | BeardCMS ACP
                 <div class="form-group">
                     <label class="col-lg-2 control-label" for="page_content">Content</label>
                     <div class="col-lg-10">
-                        {{ Form::textarea('page_content', Input::old('content') ?: $page->content, ['class' => 'form-control']) }}
+                        {{ Form::textarea('page_content', Input::old('content') ?: $page->content, ['id' => 'page_content','class' => 'form-control']) }}
                     </div>
                 </div>
                 <button type="submit" name="submit" class="ladda-button btn btn-info btn-block btn-large" data-style="slide-up">Edit Page</button>
@@ -53,8 +53,9 @@ Edit Page | BeardCMS ACP
 
 @section('js')
 <script src="{{ URL::asset('js/vendor/ckeditor/ckeditor.js') }}"></script>
+<script src="{{ URL::asset('js/vendor/ckeditor/adapters/jquery.js') }}"></script>
 <script>
-    CKEDITOR.replace('page_content',  {
+    $('#page_content').ckeditor({
         toolbar: [],
         startupMode : 'source'
     });
