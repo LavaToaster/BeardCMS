@@ -26,9 +26,9 @@ class PageController extends AdminController
         $this->layout->content = View::make('admin.page.create')->with('templates', $this->templates);
     }
 
-    public function store()
+    protected function validate($uniqueSlug = false)
     {
-        $validator = Validator::make(Input::input(), [
+        return Validator::make(Input::input(), [
             'title'        => 'required',
             'slug'         => 'required|unique:pages,slug',
             'page_content' => 'required',
@@ -39,6 +39,11 @@ class PageController extends AdminController
             'slug.unique'           => 'This slug is already in use.',
             'page_content.required' => 'You must enter some page content.'
         ]);
+    }
+
+    public function store()
+    {
+        $validator = $this->validate(true);
 
         if ($validator->fails()) {
             Input::flashExcept('_token', 'submit');
