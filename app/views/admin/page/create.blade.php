@@ -89,5 +89,11 @@ Create Page | BeardCMS ACP
         toolbar: [{ name: 'sourceTools', items: ['searchCode','autoFormat','CommentSelectedRange','UncommentSelectedRange','AutoComplete']}, { name: 'maximize', items: [ 'Maximize' ] },],
         startupMode : 'source'
     });
+
+    var $slug = $("#slug");
+
+    $("#title").keyup(function() {
+        $slug.val( this.value.toLowerCase().replace(/ /g, '_') );
+    });
 </script>
 @endsection
