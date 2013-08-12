@@ -9,7 +9,7 @@ class PageController extends BaseController {
      * @return void
      */
     public function showPage($slug) {
-        $page = Page::getPage(ltrim($slug, "/") ?: 'index.html');
+        $page = Page::getPage(ltrim($slug, "/") ?: 'index.html', 'public');
         $this->layout->content = View::make('templates.'.$page->type.".".$page->template)->with('page', $page->getAttributes());
     }
 

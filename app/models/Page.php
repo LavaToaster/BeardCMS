@@ -28,20 +28,26 @@ class Page extends Eloquent {
      * Attempts to find and return the page
      *
      * @param string|int $identifier Page ID (int) or Page slug (string)
-
+     * @param string
      * @return Page
      *
      * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
      */
-    public static function getPage($identifier)
+    public static function getPage($identifier, $visibility = 'all')
     {
         if(is_int($identifier)) {
-            $page = static::find($identifier)->firstOrFail();
+            $page = static::find($identifier);
         } else {
-            $page = static::where('slug', '=', $identifier)->firstOrFail();
+            $page = static::where('slug', '=', $identifier);
         }
 
-        return $page;
+        echo $visibility;
+
+        if($visibility !== 'all') {
+            $page->where('visibility', '=', $visibility);
+        }
+
+        return $page->firstOrFail();
     }
 
 }

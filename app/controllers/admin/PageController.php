@@ -14,6 +14,11 @@ class PageController extends AdminController
         'none' => 'None'
     ];
 
+    protected $visibility = [
+        'public'  => 'Public',
+        'private' => 'Private',
+    ];
+
     public function index()
     {
         $this->layout->content = View::make('admin.page.index')->with('pages', Page::all());
@@ -21,7 +26,7 @@ class PageController extends AdminController
 
     public function create()
     {
-        $this->layout->content = View::make('admin.page.create')->with('templates', $this->templates);
+        $this->layout->content = View::make('admin.page.create')->with('templates', $this->templates)->with('visibility', $this->visibility);
     }
 
     protected function validate($uniqueSlug = false)
@@ -30,7 +35,8 @@ class PageController extends AdminController
             'title'                 => 'required',
             'slug'                  => 'required' . ( $uniqueSlug ? '|unique:pages,slug' : '' ),
             'page_content'          => 'required',
-            'template'              => 'required|in:' . implode(',', array_keys($this->templates))
+            'template'              => 'required|in:' . implode(',', array_keys($this->templates)),
+            'visibility'            => 'required|in:' . implode(',', array_keys($this->visibility))
         ], [
             'title.required'        => 'You must enter a page title.',
             'slug.required'         => 'You must enter a page slug.',
@@ -50,11 +56,12 @@ class PageController extends AdminController
 
         $page = new Page;
 
-        $page->title    = Input::input('title');
-        $page->slug     = Input::input('slug');
-        $page->type     = 'page';
-        $page->template = Input::input('template');
-        $page->content  = Input::input('page_content');
+        $page->title      = Input::input('title');
+        $page->slug       = Input::input('slug');
+        $page->type       = 'page';
+        $page->visibility = Input::input('visibility');
+        $page->template   = Input::input('template');
+        $page->content    = Input::input('page_content');
 
         $page->save();
 
@@ -65,7 +72,7 @@ class PageController extends AdminController
     {
         $page = Page::findOrFail($id);
 
-        $this->layout->content = View::make('admin.page.edit')->with('page', $page)->with('templates', $this->templates);
+        $this->layout->content = View::make('admin.page.edit')->with('page', $page)->with('templates', $this->templates)->with('visibility', $this->visibility);
     }
 
     public function update($id)
@@ -79,9 +86,10 @@ class PageController extends AdminController
             return Redirect::to('admin/page/'.$id.'/edit')->with('errors', $validator->messages()->toArray());
         }
 
-        $page->title   = Input::input('title');
-        $page->slug    = Input::input('slug');
-        $page->content = Input::input('page_content');
+        $page->title      = Input::input('title');
+        $page->slug       = Input::input('slug');
+        $page->visibility = Input::input('visibility');
+        $page->content    = Input::input('page_content');
 
         $page->save();
 

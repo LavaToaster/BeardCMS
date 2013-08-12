@@ -17,6 +17,7 @@ class CreatePageTable extends Migration {
             $table->string('title');
             $table->string('slug')->unique();
             $table->mediumText("content");
+            $table->string('visibility', 20);
             $table->string('type');
             $table->string('template')->nullable();
             $table->boolean('isDefault')->default(false);
