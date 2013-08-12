@@ -23,7 +23,7 @@ Create Page | BeardCMS ACP
                 </div>
                 @endforeach
                 @endif
-                {{ Form::model(['method' => 'put', 'route' => ['admin.page.store']]) }}
+                {{ Form::open(['method' => 'post', 'route' => ['admin.page.store']]) }}
                 <div class="row">
                     <div class="col-lg-8 form-horizontal">
                         <div class="form-group">
