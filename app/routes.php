@@ -17,6 +17,7 @@ Route::get('admin/logout', 'Admin\LoginController@getLogout');
 
 Route::group(['prefix' => 'admin', 'before' => 'auth'], function() {
     Route::resource('page', 'Admin\PageController');
+    Route::resource('article', 'Admin\ArticleController');
 
     Route::controller('/', 'Admin\DashboardController');
 });
