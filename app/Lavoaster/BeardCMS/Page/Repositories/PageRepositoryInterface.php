@@ -5,7 +5,7 @@ interface PageRepositoryInterface
 	/**
 	 * Returns all pages
 	 *
-	 * @return \Lavoaster\BeardCMS\Page\Models\PageInterface
+	 * @return \Lavoaster\BeardCMS\Page\Models\PageInterface[]
 	 */
 	public function all();
 
