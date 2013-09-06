@@ -9,7 +9,7 @@
         "way/laravel-test-helpers": "dev-master",
         "way/generators": "dev-master",
         "davedevelopment/hamcrest-php": "dev-master",
-        "codeception/codeception": "1.6.1.1",
+        "codeception/codeception": "1.6.*",
         "barryvdh/laravel-ide-helper": "1.*",
         "satooshi/php-coveralls": "dev-master"
     },
